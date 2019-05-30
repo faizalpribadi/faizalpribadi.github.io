@@ -1,0 +1,2 @@
+# faizalpribadi.github.io
+Blog
