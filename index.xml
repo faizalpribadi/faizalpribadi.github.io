@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Faizal Pribadi</title>
+    <title>A Saturated Grey</title>
     <link>https://faizalpribadi.github.io/</link>
-    <description>Recent content on Faizal Pribadi</description>
+    <description>Recent content on A Saturated Grey</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Fri, 31 May 2019 00:51:56 +0700</lastBuildDate>
@@ -29,7 +29,7 @@ usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test
       <pubDate>Fri, 31 May 2019 00:14:52 +0700</pubDate>
       
       <guid>https://faizalpribadi.github.io/about/about/</guid>
-      <description>nil</description>
+      <description>Hi, i am a Software Engineer and Love Photography :)</description>
     </item>
     
     <item>
