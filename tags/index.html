@@ -25,6 +25,8 @@
 
 </title>
 <link rel="canonical" href="https://faizalpribadi.github.io/tags/">
+<link rel="manifest" href="https://faizalpribadi.github.io/manifest.json">
+
 
 
 
@@ -42,11 +44,11 @@
 
 
     
-    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/reset.css?t=2019-05-31%2000%3a07%3a30.484865%20%2b0700%20WIB%20m%3d%2b0.029804212">
-    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/pygments.css?t=2019-05-31%2000%3a07%3a30.484865%20%2b0700%20WIB%20m%3d%2b0.029804212">
-    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/main.css?t=2019-05-31%2000%3a07%3a30.484865%20%2b0700%20WIB%20m%3d%2b0.029804212">
+    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/reset.css?t=2019-05-31%2000%3a42%3a18.12139%20%2b0700%20WIB%20m%3d%2b0.028674146">
+    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/pygments.css?t=2019-05-31%2000%3a42%3a18.12139%20%2b0700%20WIB%20m%3d%2b0.028674146">
+    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/main.css?t=2019-05-31%2000%3a42%3a18.12139%20%2b0700%20WIB%20m%3d%2b0.028674146">
     
-        <link rel="stylesheet" href="https://faizalpribadi.github.io/css/override.css?t=2019-05-31%2000%3a07%3a30.484865%20%2b0700%20WIB%20m%3d%2b0.029804212">
+        <link rel="stylesheet" href="https://faizalpribadi.github.io/css/override.css?t=2019-05-31%2000%3a42%3a18.12139%20%2b0700%20WIB%20m%3d%2b0.028674146">
     
 
 
@@ -80,6 +82,8 @@
                 
                 
                 
+                
+                    
                 
                     
                 
@@ -194,7 +198,21 @@ if (!doNotTrack) {
 
 
 
+<script>
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('/sw.js', { scope: '/' })
+            .then(function(registration) {
+                console.log('Service Worker Registered');
+            });
 
+        navigator.serviceWorker
+            .ready
+            .then(function(registration) {
+                console.log('Service Worker Ready');
+            });
+    }
+  </script>
 </body>
 </html>
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on Faizal Pribadi</title>
+    <link>https://faizalpribadi.github.io/about/</link>
+    <description>Recent content in About on Faizal Pribadi</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 31 May 2019 00:14:52 +0700</lastBuildDate>
+    
+	<atom:link href="https://faizalpribadi.github.io/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://faizalpribadi.github.io/about/about/</link>
+      <pubDate>Fri, 31 May 2019 00:14:52 +0700</pubDate>
+      
+      <guid>https://faizalpribadi.github.io/about/about/</guid>
+      <description>nil</description>
+    </item>
+    
+  </channel>
+</rss>
