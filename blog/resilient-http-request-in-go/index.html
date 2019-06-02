@@ -9,29 +9,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Faizal Pribadi">
-<meta name="description" content=" retry 
-description Retry Execution Library For Go
-installation go get -u github.com/faizalpribadi/retry
-usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test go test  ">
+<meta name="description" content="Resilience mechanism in distributed system reduce oversize request available for users.
+in this part, we can make resilient using the circuit breaker pattern using a hystrix-golang library.
+breakers.go
+package breakers import ( &quot;github.com/afex/hystrix-go/hystrix&quot; ) const ( FetchJson = &quot;fetch.json&quot; ) func ConfigCircuitBreakers() { breakers := make(map[string]hystrix.CommandConfig) breakers[FetchJson] = hystrix.CommandConfig{ Timeout: 1000, MaxConcurrentRequests: 100, ErrorPercentThreshold: 25, } hystrix.Configure(breakers) }  main.go
+package main import ( &quot;github.com/afex/hystrix-go/hystrix&quot; &quot;github.com/faizalpribadi/learn/breakers&quot; &quot;io/ioutil&quot; &quot;log&quot; &quot;net/http&quot; ) func main() { breakers.">
 
-<meta property="og:title" content="Simple Golang Library for Retry Mechanism" />
-<meta property="og:description" content=" retry 
-description Retry Execution Library For Go
-installation go get -u github.com/faizalpribadi/retry
-usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test go test  " />
+<meta property="og:title" content="Resilient Http Request in Go" />
+<meta property="og:description" content="Resilience mechanism in distributed system reduce oversize request available for users.
+in this part, we can make resilient using the circuit breaker pattern using a hystrix-golang library.
+breakers.go
+package breakers import ( &quot;github.com/afex/hystrix-go/hystrix&quot; ) const ( FetchJson = &quot;fetch.json&quot; ) func ConfigCircuitBreakers() { breakers := make(map[string]hystrix.CommandConfig) breakers[FetchJson] = hystrix.CommandConfig{ Timeout: 1000, MaxConcurrentRequests: 100, ErrorPercentThreshold: 25, } hystrix.Configure(breakers) }  main.go
+package main import ( &quot;github.com/afex/hystrix-go/hystrix&quot; &quot;github.com/faizalpribadi/learn/breakers&quot; &quot;io/ioutil&quot; &quot;log&quot; &quot;net/http&quot; ) func main() { breakers." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://faizalpribadi.github.io/blog/simple-golang-library-for-retry-mechanism/" />
-<meta property="article:published_time" content="2019-05-31T00:51:56&#43;07:00"/>
-<meta property="article:modified_time" content="2019-05-31T00:51:56&#43;07:00"/>
+<meta property="og:url" content="https://faizalpribadi.github.io/blog/resilient-http-request-in-go/" />
+<meta property="article:published_time" content="2019-06-03T03:06:11&#43;07:00"/>
+<meta property="article:modified_time" content="2019-06-03T03:06:11&#43;07:00"/>
 
 
 <title>
 
 
-     Simple Golang Library for Retry Mechanism 
+     Resilient Http Request in Go 
 
 </title>
-<link rel="canonical" href="https://faizalpribadi.github.io/blog/simple-golang-library-for-retry-mechanism/">
+<link rel="canonical" href="https://faizalpribadi.github.io/blog/resilient-http-request-in-go/">
 <link rel="manifest" href="https://faizalpribadi.github.io/manifest.json">
 
 
@@ -51,11 +53,11 @@ usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test
 
 
     
-    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/reset.css?t=2019-06-03%2003%3a19%3a34.676264%20%2b0700%20WIB%20m%3d%2b0.035595364">
-    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/pygments.css?t=2019-06-03%2003%3a19%3a34.676264%20%2b0700%20WIB%20m%3d%2b0.035595364">
-    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/main.css?t=2019-06-03%2003%3a19%3a34.676264%20%2b0700%20WIB%20m%3d%2b0.035595364">
+    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/reset.css?t=2019-06-03%2003%3a19%3a34.676463%20%2b0700%20WIB%20m%3d%2b0.035795089">
+    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/pygments.css?t=2019-06-03%2003%3a19%3a34.676463%20%2b0700%20WIB%20m%3d%2b0.035795089">
+    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/main.css?t=2019-06-03%2003%3a19%3a34.676463%20%2b0700%20WIB%20m%3d%2b0.035795089">
     
-        <link rel="stylesheet" href="https://faizalpribadi.github.io/css/override.css?t=2019-06-03%2003%3a19%3a34.676264%20%2b0700%20WIB%20m%3d%2b0.035595364">
+        <link rel="stylesheet" href="https://faizalpribadi.github.io/css/override.css?t=2019-06-03%2003%3a19%3a34.676463%20%2b0700%20WIB%20m%3d%2b0.035795089">
     
 
 
@@ -166,7 +168,7 @@ usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test
                 <div class="title-container">
                     <div class="page-heading">
 
-    Simple Golang Library for Retry Mechanism
+    Resilient Http Request in Go
 
 </div>
 
@@ -174,7 +176,7 @@ usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Fri May 31 2019 00:51:56 WIB'>May 31, 2019</div>
+                    <div class="date" title='Mon Jun 3 2019 03:06:11 WIB'>Jun 3, 2019</div>
                     
                     
 		    <div class="reading-time"><div class="middot"></div>One minute read</div>
@@ -182,38 +184,75 @@ usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test
                 </div>
             </div>
             <div class="markdown">
-                
+                <p>Resilience mechanism in distributed system reduce oversize request available for users.</p>
 
-<h1 id="retry">retry</h1>
+<p>in this part, we can make resilient using the circuit breaker pattern using a <code>hystrix-golang</code> library.</p>
 
-<p><a href="https://cloud.drone.io/faizalpribadi/retry"><img src="https://cloud.drone.io/api/badges/faizalpribadi/retry/status.svg" alt="Build Status" /></a></p>
+<p><code>breakers.go</code></p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/faizalpribadi/retry/master/images/retry.png" width="220"></p>
+<pre><code class="language-go">package breakers
 
-<h3 id="description">description</h3>
+import (
+    &quot;github.com/afex/hystrix-go/hystrix&quot;
+)
 
-<p>Retry Execution Library For Go</p>
+const (
+    FetchJson = &quot;fetch.json&quot;
+)
 
-<h3 id="installation">installation</h3>
+func ConfigCircuitBreakers() {
+	breakers := make(map[string]hystrix.CommandConfig)
 
-<p><code>go get -u github.com/faizalpribadi/retry</code></p>
+	breakers[FetchJson] = hystrix.CommandConfig{
+            Timeout:               1000,
+	    MaxConcurrentRequests: 100,
+	    ErrorPercentThreshold: 25,
+	}
 
-<h3 id="usage">usage</h3>
-
-<pre><code class="language-go">
-retry.Retry(5, 1, func() error {
-    // do some logic here
-
-    return nil
-})
-
+	hystrix.Configure(breakers)
+}
 </code></pre>
 
-<h3 id="test">test</h3>
+<p><code>main.go</code></p>
 
-<pre><code class="language-go">
-go test
+<pre><code class="language-go">package main
 
+import (
+	&quot;github.com/afex/hystrix-go/hystrix&quot;
+	&quot;github.com/faizalpribadi/learn/breakers&quot;
+	&quot;io/ioutil&quot;
+	&quot;log&quot;
+	&quot;net/http&quot;
+)
+
+func main() {
+	breakers.ConfigCircuitBreakers()
+
+	result := make(chan interface{}, 1)
+
+	errChan := hystrix.Go(&quot;fetch.json&quot;, func() error{
+			resp, err := http.Get(&quot;https://jsonplaceholder.typicode.com/todos&quot;)
+			if err != nil {
+				return err
+			}
+
+			value, err := ioutil.ReadAll(resp.Body)
+			if err != nil {
+				return err
+			}
+
+			result &lt;- string(value)
+			return nil
+
+	}, nil)
+
+	select {
+	case output := &lt;-result:
+		log.Println(output)
+	case errResp := &lt;-errChan:
+		log.Println(errResp)
+	}
+}
 </code></pre>
 
                 <br>

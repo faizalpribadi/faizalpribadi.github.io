@@ -4,14 +4,19 @@
   
   <url>
     <loc>https://faizalpribadi.github.io/</loc>
-    <lastmod>2019-05-31T00:51:56+07:00</lastmod>
+    <lastmod>2019-06-03T03:06:11+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://faizalpribadi.github.io/blog/</loc>
-    <lastmod>2019-05-31T00:51:56+07:00</lastmod>
+    <lastmod>2019-06-03T03:06:11+07:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://faizalpribadi.github.io/blog/resilient-http-request-in-go/</loc>
+    <lastmod>2019-06-03T03:06:11+07:00</lastmod>
   </url>
   
   <url>

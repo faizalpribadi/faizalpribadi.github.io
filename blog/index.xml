@@ -6,10 +6,23 @@
     <description>Recent content in Blog on A Saturated Grey</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 31 May 2019 00:51:56 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 03:06:11 +0700</lastBuildDate>
     
 	<atom:link href="https://faizalpribadi.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Resilient Http Request in Go</title>
+      <link>https://faizalpribadi.github.io/blog/resilient-http-request-in-go/</link>
+      <pubDate>Mon, 03 Jun 2019 03:06:11 +0700</pubDate>
+      
+      <guid>https://faizalpribadi.github.io/blog/resilient-http-request-in-go/</guid>
+      <description>Resilience mechanism in distributed system reduce oversize request available for users.
+in this part, we can make resilient using the circuit breaker pattern using a hystrix-golang library.
+breakers.go
+package breakers import ( &amp;quot;github.com/afex/hystrix-go/hystrix&amp;quot; ) const ( FetchJson = &amp;quot;fetch.json&amp;quot; ) func ConfigCircuitBreakers() { breakers := make(map[string]hystrix.CommandConfig) breakers[FetchJson] = hystrix.CommandConfig{ Timeout: 1000, MaxConcurrentRequests: 100, ErrorPercentThreshold: 25, } hystrix.Configure(breakers) }  main.go
+package main import ( &amp;quot;github.com/afex/hystrix-go/hystrix&amp;quot; &amp;quot;github.com/faizalpribadi/learn/breakers&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; ) func main() { breakers.</description>
+    </item>
     
     <item>
       <title>Simple Golang Library for Retry Mechanism</title>
