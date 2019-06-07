@@ -6,10 +6,19 @@
     <description>Recent content on A Saturated Grey</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 07 Jun 2019 16:25:34 +0700</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jun 2019 16:38:57 +0700</lastBuildDate>
     
 	<atom:link href="https://faizalpribadi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>About</title>
+      <link>https://faizalpribadi.github.io/about/</link>
+      <pubDate>Fri, 07 Jun 2019 16:38:57 +0700</pubDate>
+      
+      <guid>https://faizalpribadi.github.io/about/</guid>
+      <description>Hi, i am a Software Engineer and Love Photography :)</description>
+    </item>
     
     <item>
       <title>First Cache Mechanism Golang With Redis</title>
@@ -43,15 +52,6 @@ package main import ( &amp;quot;github.com/afex/hystrix-go/hystrix&amp;quot; &am
 description Retry Execution Library For Go
 installation go get -u github.com/faizalpribadi/retry
 usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test go test  </description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://faizalpribadi.github.io/about/about/</link>
-      <pubDate>Fri, 31 May 2019 00:14:52 +0700</pubDate>
-      
-      <guid>https://faizalpribadi.github.io/about/about/</guid>
-      <description>Hi, i am a Software Engineer and Love Photography :)</description>
     </item>
     
     <item>
