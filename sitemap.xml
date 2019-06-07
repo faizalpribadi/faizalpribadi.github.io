@@ -4,19 +4,24 @@
   
   <url>
     <loc>https://faizalpribadi.github.io/</loc>
-    <lastmod>2019-06-07T16:38:57+07:00</lastmod>
+    <lastmod>2019-06-08T02:40:52+07:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://faizalpribadi.github.io/blog/</loc>
+    <lastmod>2019-06-08T02:40:52+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://faizalpribadi.github.io/blog/creational-pattern-in-go-with-abstract-factory-and-factory-method/</loc>
+    <lastmod>2019-06-08T02:40:52+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://faizalpribadi.github.io/about/</loc>
     <lastmod>2019-06-07T16:38:57+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://faizalpribadi.github.io/blog/</loc>
-    <lastmod>2019-06-07T16:25:34+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

@@ -6,10 +6,19 @@
     <description>Recent content on A Saturated Grey</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 07 Jun 2019 16:38:57 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 08 Jun 2019 02:40:52 +0700</lastBuildDate>
     
 	<atom:link href="https://faizalpribadi.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Creational Pattern in Go With Abstract Factory and Factory Method</title>
+      <link>https://faizalpribadi.github.io/blog/creational-pattern-in-go-with-abstract-factory-and-factory-method/</link>
+      <pubDate>Sat, 08 Jun 2019 02:40:52 +0700</pubDate>
+      
+      <guid>https://faizalpribadi.github.io/blog/creational-pattern-in-go-with-abstract-factory-and-factory-method/</guid>
+      <description>package main type Reader interface { ReadAll(body []byte) error } type reader struct{} func NewReader() *reader { return &amp;amp;reader{} } func (r *reader) ReadAll(body []byte) error { // Implement function ReadAll return nil } type Writer interface { WriteFile(name string, destination string, data interface{}) error } type writer struct{} func NewWriter() *writer { return &amp;amp;writer{} } func (w *writer) WriteFile(name string, destination string, data interface{}) error { // Implement function WriteFile return nil } type Option struct { reader Reader writer Writer } func NewOption(reader Reader, writer Writer) *Option { return &amp;amp;Option{reader, writer} } func (o *Option) Injector() { // Use ReadAll function from Reader interface o.</description>
+    </item>
     
     <item>
       <title>About</title>
