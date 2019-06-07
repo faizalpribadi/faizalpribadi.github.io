@@ -4,14 +4,19 @@
   
   <url>
     <loc>https://faizalpribadi.github.io/</loc>
-    <lastmod>2019-06-03T03:06:11+07:00</lastmod>
+    <lastmod>2019-06-07T16:25:34+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://faizalpribadi.github.io/blog/</loc>
-    <lastmod>2019-06-03T03:06:11+07:00</lastmod>
+    <lastmod>2019-06-07T16:25:34+07:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://faizalpribadi.github.io/blog/first-cache-mechanism-golang-with-redis/</loc>
+    <lastmod>2019-06-07T16:25:34+07:00</lastmod>
   </url>
   
   <url>

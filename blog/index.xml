@@ -6,10 +6,19 @@
     <description>Recent content in Blog on A Saturated Grey</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 03 Jun 2019 03:06:11 +0700</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jun 2019 16:25:34 +0700</lastBuildDate>
     
 	<atom:link href="https://faizalpribadi.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>First Cache Mechanism Golang With Redis</title>
+      <link>https://faizalpribadi.github.io/blog/first-cache-mechanism-golang-with-redis/</link>
+      <pubDate>Fri, 07 Jun 2019 16:25:34 +0700</pubDate>
+      
+      <guid>https://faizalpribadi.github.io/blog/first-cache-mechanism-golang-with-redis/</guid>
+      <description>package main import ( &amp;quot;database/sql&amp;quot; &amp;quot;github.com/go-redis/redis&amp;quot; _ &amp;quot;github.com/go-sql-driver/mysql&amp;quot; &amp;quot;github.com/gorilla/mux&amp;quot; &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;time&amp;quot; &amp;quot;os&amp;quot; ) type DB struct { redis *redis.Client mysql *sql.DB } func NewDB() *DB { opt := &amp;amp;redis.Options{ Addr: os.Getenv(&amp;quot;REDIS_HOST&amp;quot;), Password: &amp;quot;&amp;quot;, DB: 0, } client := redis.NewClient(opt) pong, err := client.Ping().Result() if err != nil { log.Panic(err, pong) } db, err := sql.Open(os.Getenv(&amp;quot;DB_DRIVER&amp;quot;), os.Getenv(&amp;quot;DB_DSN&amp;quot;)) if err != nil { log.Panic(err) } return &amp;amp;DB{redis: client, mysql: db} } func (d *DB) Fetch(w http.</description>
+    </item>
     
     <item>
       <title>Resilient Http Request in Go</title>

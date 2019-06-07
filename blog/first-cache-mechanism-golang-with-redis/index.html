@@ -9,29 +9,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Faizal Pribadi">
-<meta name="description" content=" retry 
-description Retry Execution Library For Go
-installation go get -u github.com/faizalpribadi/retry
-usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test go test  ">
+<meta name="description" content="package main import ( &quot;database/sql&quot; &quot;github.com/go-redis/redis&quot; _ &quot;github.com/go-sql-driver/mysql&quot; &quot;github.com/gorilla/mux&quot; &quot;log&quot; &quot;net/http&quot; &quot;time&quot; &quot;os&quot; ) type DB struct { redis *redis.Client mysql *sql.DB } func NewDB() *DB { opt := &amp;redis.Options{ Addr: os.Getenv(&quot;REDIS_HOST&quot;), Password: &quot;&quot;, DB: 0, } client := redis.NewClient(opt) pong, err := client.Ping().Result() if err != nil { log.Panic(err, pong) } db, err := sql.Open(os.Getenv(&quot;DB_DRIVER&quot;), os.Getenv(&quot;DB_DSN&quot;)) if err != nil { log.Panic(err) } return &amp;DB{redis: client, mysql: db} } func (d *DB) Fetch(w http.">
 
-<meta property="og:title" content="Simple Golang Library for Retry Mechanism" />
-<meta property="og:description" content=" retry 
-description Retry Execution Library For Go
-installation go get -u github.com/faizalpribadi/retry
-usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test go test  " />
+<meta property="og:title" content="First Cache Mechanism Golang With Redis" />
+<meta property="og:description" content="package main import ( &quot;database/sql&quot; &quot;github.com/go-redis/redis&quot; _ &quot;github.com/go-sql-driver/mysql&quot; &quot;github.com/gorilla/mux&quot; &quot;log&quot; &quot;net/http&quot; &quot;time&quot; &quot;os&quot; ) type DB struct { redis *redis.Client mysql *sql.DB } func NewDB() *DB { opt := &amp;redis.Options{ Addr: os.Getenv(&quot;REDIS_HOST&quot;), Password: &quot;&quot;, DB: 0, } client := redis.NewClient(opt) pong, err := client.Ping().Result() if err != nil { log.Panic(err, pong) } db, err := sql.Open(os.Getenv(&quot;DB_DRIVER&quot;), os.Getenv(&quot;DB_DSN&quot;)) if err != nil { log.Panic(err) } return &amp;DB{redis: client, mysql: db} } func (d *DB) Fetch(w http." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://faizalpribadi.github.io/blog/simple-golang-library-for-retry-mechanism/" />
-<meta property="article:published_time" content="2019-05-31T00:51:56&#43;07:00"/>
-<meta property="article:modified_time" content="2019-05-31T00:51:56&#43;07:00"/>
+<meta property="og:url" content="https://faizalpribadi.github.io/blog/first-cache-mechanism-golang-with-redis/" />
+<meta property="article:published_time" content="2019-06-07T16:25:34&#43;07:00"/>
+<meta property="article:modified_time" content="2019-06-07T16:25:34&#43;07:00"/>
 
 
 <title>
 
 
-     Simple Golang Library for Retry Mechanism 
+     First Cache Mechanism Golang With Redis 
 
 </title>
-<link rel="canonical" href="https://faizalpribadi.github.io/blog/simple-golang-library-for-retry-mechanism/">
+<link rel="canonical" href="https://faizalpribadi.github.io/blog/first-cache-mechanism-golang-with-redis/">
 <link rel="manifest" href="https://faizalpribadi.github.io/manifest.json">
 
 
@@ -51,11 +45,11 @@ usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test
 
 
     
-    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/reset.css?t=2019-06-07%2016%3a36%3a21.916722%20%2b0700%20WIB%20m%3d%2b0.028512305">
-    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/pygments.css?t=2019-06-07%2016%3a36%3a21.916722%20%2b0700%20WIB%20m%3d%2b0.028512305">
-    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/main.css?t=2019-06-07%2016%3a36%3a21.916722%20%2b0700%20WIB%20m%3d%2b0.028512305">
+    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/reset.css?t=2019-06-07%2016%3a36%3a21.91833%20%2b0700%20WIB%20m%3d%2b0.030119897">
+    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/pygments.css?t=2019-06-07%2016%3a36%3a21.91833%20%2b0700%20WIB%20m%3d%2b0.030119897">
+    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/main.css?t=2019-06-07%2016%3a36%3a21.91833%20%2b0700%20WIB%20m%3d%2b0.030119897">
     
-        <link rel="stylesheet" href="https://faizalpribadi.github.io/css/override.css?t=2019-06-07%2016%3a36%3a21.916722%20%2b0700%20WIB%20m%3d%2b0.028512305">
+        <link rel="stylesheet" href="https://faizalpribadi.github.io/css/override.css?t=2019-06-07%2016%3a36%3a21.91833%20%2b0700%20WIB%20m%3d%2b0.030119897">
     
 
 
@@ -166,7 +160,7 @@ usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test
                 <div class="title-container">
                     <div class="page-heading">
 
-    Simple Golang Library for Retry Mechanism
+    First Cache Mechanism Golang With Redis
 
 </div>
 
@@ -174,46 +168,114 @@ usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test
                 </div>
                 <div class="meta">
                     
-                    <div class="date" title='Fri May 31 2019 00:51:56 WIB'>May 31, 2019</div>
+                    <div class="date" title='Fri Jun 7 2019 16:25:34 WIB'>Jun 7, 2019</div>
                     
                     
-		    <div class="reading-time"><div class="middot"></div>One minute read</div>
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
                     
                 </div>
             </div>
             <div class="markdown">
                 
 
-<h1 id="retry">retry</h1>
-
-<p><a href="https://cloud.drone.io/faizalpribadi/retry"><img src="https://cloud.drone.io/api/badges/faizalpribadi/retry/status.svg" alt="Build Status" /></a></p>
-
-<p align="center"><img src="https://raw.githubusercontent.com/faizalpribadi/retry/master/images/retry.png" width="220"></p>
-
-<h3 id="description">description</h3>
-
-<p>Retry Execution Library For Go</p>
-
-<h3 id="installation">installation</h3>
-
-<p><code>go get -u github.com/faizalpribadi/retry</code></p>
-
-<h3 id="usage">usage</h3>
-
 <pre><code class="language-go">
-retry.Retry(5, 1, func() error {
-    // do some logic here
+package main
 
-    return nil
-})
+import (
+	&quot;database/sql&quot;
+	&quot;github.com/go-redis/redis&quot;
+	_ &quot;github.com/go-sql-driver/mysql&quot;
+	&quot;github.com/gorilla/mux&quot;
+	&quot;log&quot;
+	&quot;net/http&quot;
+    &quot;time&quot;
+    &quot;os&quot;
+)
+
+type DB struct {
+	redis *redis.Client
+	mysql *sql.DB
+}
+
+func NewDB() *DB {
+	opt := &amp;redis.Options{
+		Addr: os.Getenv(&quot;REDIS_HOST&quot;),
+		Password: &quot;&quot;, 
+		DB:       0, 
+	}
+
+	client := redis.NewClient(opt)
+	pong, err := client.Ping().Result()
+	if err != nil {
+		log.Panic(err, pong)
+	}
+
+	db, err := sql.Open(os.Getenv(&quot;DB_DRIVER&quot;), os.Getenv(&quot;DB_DSN&quot;))
+	if err != nil {
+		log.Panic(err)
+	}
+
+
+	return &amp;DB{redis: client, mysql: db}
+}
+
+func (d *DB) Fetch(w http.ResponseWriter, r *http.Request) {
+    keyID := mux.Vars[r][&quot;id&quot;]
+	val, err := d.redis.Get(keyID).Result()
+	if err != nil {
+        // Do Logical Here to Select data From Database
+        // And Set the Value from Database to Redis
+        // Set Expiration to 5 second
+		err := d.redis.Set(keyID, &quot;Hello From Redis&quot;, 5 * time.Second).Err()
+		if err != nil {
+			log.Panic(err)
+		}
+
+        // Send The Headers and Payload
+		w.Header().Add(&quot;X-Cache&quot;, &quot;MISS&quot;)
+		w.WriteHeader(200)
+		w.Write([]byte(&quot;Fetch from Database&quot;))
+		return
+	}
+
+    // Send The Headers and Payload value From Redis Cache
+	w.Header().Add(&quot;X-Cache&quot;, &quot;HIT&quot;)
+	w.WriteHeader(200)
+	w.Write([]byte(val))
+	return
+}
+
+func main() {
+	db := NewDB()
+	r := mux.NewRouter()
+	r.HandleFunc(&quot;/{id}&quot;, db.Fetch)
+	http.ListenAndServe(&quot;:81&quot;, r)
+}
 
 </code></pre>
 
-<h3 id="test">test</h3>
+<h3 id="testing-with-httpie">Testing with <code>httpie</code></h3>
 
-<pre><code class="language-go">
-go test
+<pre><code class="language-bash">
+http GET http://localhost:81/redis_key
 
+// First payload because cache not exist
+HTTP/1.1 200 OK
+Content-Length: 18
+Content-Type: text/plain; charset=utf-8
+Date: Fri, 07 Jun 2019 09:28:04 GMT
+X-Cache: MISS
+</code></pre>
+
+<pre><code class="language-bash">
+http GET http://localhost:81/redis_key
+
+// Second payload, fetch data from redis cache
+HTTP/1.1 200 OK
+Content-Length: 18
+Content-Type: text/plain; charset=utf-8
+Date: Fri, 07 Jun 2019 09:28:04 GMT
+X-Cache: HIT
 </code></pre>
 
                 <br>
