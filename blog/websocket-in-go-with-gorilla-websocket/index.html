@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Faizal Pribadi">
+<meta name="description" content="Learn how to use websockets in Golang to create a real time application with an Gorilla Websocket
+hub.go
+package hub import ( &quot;log&quot; &quot;net/http&quot; &quot;github.com/faizalpribadi/learn/client&quot; &quot;github.com/gorilla/websocket&quot; ) var ( upgrader = websocket.Upgrader{ ReadBufferSize: 1024, WriteBufferSize: 1024, CheckOrigin: func(r *http.Request) bool { return true }, } ) type Hub interface { Serve(chan client.Client) func(http.ResponseWriter, *http.Request) HasClient(userId string) bool GetClient(userId string) (client.Client, bool) Stop() } type hub struct { connections map[string]client.Client upgrader websocket.">
+
+<meta property="og:title" content="Websocket in Go With Gorilla Websocket" />
+<meta property="og:description" content="Learn how to use websockets in Golang to create a real time application with an Gorilla Websocket
+hub.go
+package hub import ( &quot;log&quot; &quot;net/http&quot; &quot;github.com/faizalpribadi/learn/client&quot; &quot;github.com/gorilla/websocket&quot; ) var ( upgrader = websocket.Upgrader{ ReadBufferSize: 1024, WriteBufferSize: 1024, CheckOrigin: func(r *http.Request) bool { return true }, } ) type Hub interface { Serve(chan client.Client) func(http.ResponseWriter, *http.Request) HasClient(userId string) bool GetClient(userId string) (client.Client, bool) Stop() } type hub struct { connections map[string]client.Client upgrader websocket." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://faizalpribadi.github.io/blog/websocket-in-go-with-gorilla-websocket/" />
+<meta property="article:published_time" content="2019-06-08T19:58:27&#43;07:00"/>
+<meta property="article:modified_time" content="2019-06-08T19:58:27&#43;07:00"/>
+
+
+<title>
+
+
+     Websocket in Go With Gorilla Websocket 
+
+</title>
+<link rel="canonical" href="https://faizalpribadi.github.io/blog/websocket-in-go-with-gorilla-websocket/">
+<link rel="manifest" href="https://faizalpribadi.github.io/manifest.json">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/reset.css?t=2019-06-08%2020%3a03%3a58.039857%20%2b0700%20WIB%20m%3d%2b0.029690571">
+    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/pygments.css?t=2019-06-08%2020%3a03%3a58.039857%20%2b0700%20WIB%20m%3d%2b0.029690571">
+    <link rel="stylesheet" href="https://faizalpribadi.github.io/css/main.css?t=2019-06-08%2020%3a03%3a58.039857%20%2b0700%20WIB%20m%3d%2b0.029690571">
+    
+        <link rel="stylesheet" href="https://faizalpribadi.github.io/css/override.css?t=2019-06-08%2020%3a03%3a58.039857%20%2b0700%20WIB%20m%3d%2b0.029690571">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://faizalpribadi.github.io/img/atom.png"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://faizalpribadi.github.io/"><img class="avatar" src="https://faizalpribadi.github.io/img/me.jpg" srcset="https://faizalpribadi.github.io/img/me.jpg 1x"></a>
+            
+            <a href="https://faizalpribadi.github.io/"><div class="name">Faizal Pribadi</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://faizalpribadi.github.io/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-about"><a href="https://faizalpribadi.github.io/about/"><span>About</span></a></li>
+                    
+                        <li class="nav-code"><a href="https://faizalpribadi.github.io/code/"><span>Code</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/faizalpribadi" target="_blank" rel="noopener"><img class="icon" src="https://faizalpribadi.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+
+        
+
+	
+
+        
+
+        
+
+        
+            <a href="//linkedin.com/in/faizal-pribadi" target="_blank" rel="noopener"><img class="icon" src="https://faizalpribadi.github.io/img/linkedin.svg" alt="linkedin" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/faizal.pribadi" target="_blank" rel="noopener"><img class="icon" src="https://faizalpribadi.github.io/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+            <a href="mailto:faizal.pribadi@gmail.com"><img class="icon" src="https://faizalpribadi.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Websocket in Go With Gorilla Websocket
+
+</div>
+
+                    <div class="initials"><a href="https://faizalpribadi.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sat Jun 8 2019 19:58:27 WIB'>Jun 8, 2019</div>
+                    
+                    
+		    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <p>Learn how to use websockets in Golang to create a real time application with an <code>Gorilla Websocket</code></p>
+
+<p><code>hub.go</code></p>
+
+<pre><code class="language-go">package hub
+
+import (
+	&quot;log&quot;
+	&quot;net/http&quot;
+	&quot;github.com/faizalpribadi/learn/client&quot;
+	&quot;github.com/gorilla/websocket&quot;
+)
+
+var (
+	upgrader = websocket.Upgrader{
+		ReadBufferSize:  1024,
+		WriteBufferSize: 1024,
+		CheckOrigin: func(r *http.Request) bool {
+			return true
+		},
+	}
+)
+
+type Hub interface {
+	Serve(chan client.Client) func(http.ResponseWriter, *http.Request)
+	HasClient(userId string) bool
+	GetClient(userId string) (client.Client, bool)
+	Stop()
+}
+
+type hub struct {
+	connections map[string]client.Client
+	upgrader    websocket.Upgrader
+	chClose     chan struct{}
+	closed      bool
+}
+
+func NewHub() Hub {
+	return &amp;hub{make(map[string]client.Client), upgrader, make(chan struct{}), false}
+}
+
+func (h *hub) startClientListener(chClient chan client.Client) {
+	defer close(chClient)
+	defer close(h.chClose)
+	for {
+		select {
+		case client := &lt;-chClient:
+			h.connections[client.ID()] = client
+		case &lt;-h.chClose:
+			break
+		}
+	}
+}
+
+func (h *hub) Stop() {
+	h.closed = true
+	h.chClose &lt;- struct{}{}
+}
+
+func (h *hub) Serve(chClient chan client.Client) func(http.ResponseWriter, *http.Request) {
+	go h.startClientListener(chClient)
+	log.Println(&quot;Hub is serving...&quot;)
+	return func(writer http.ResponseWriter, req *http.Request) {
+		userId := req.URL.Query().Get(&quot;user_id&quot;)
+		if h.closed {
+			http.Error(writer, &quot;Server was stopped&quot;, 500)
+			return
+		} else if userId == &quot;&quot; {
+			http.Error(writer, &quot;Unauthorized&quot;, 401)
+			return
+		}
+		log.Printf(&quot;Connected user: %s\n&quot;, userId)
+		conn, err := upgrader.Upgrade(writer, req, nil)
+		if err != nil {
+			log.Println(&quot;Failed to upgrade to websocket&quot;, err.Error())
+			http.Error(writer, &quot;Failed to upgrade to websocket&quot;, 500)
+			return
+		}
+		chClient &lt;- client.NewClient(conn, userId)
+	}
+}
+
+func (h *hub) HasClient(userId string) bool {
+	_, ok := h.connections[userId]
+	return ok
+}
+
+func (h *hub) GetClient(userId string) (client.Client, bool) {
+	if !h.HasClient(userId) {
+		return nil, false
+	}
+	return h.connections[userId], true
+}
+</code></pre>
+
+<p><code>client.go</code></p>
+
+<pre><code class="language-go">package client
+
+import (
+	&quot;fmt&quot;
+	&quot;time&quot;
+
+	&quot;github.com/gorilla/websocket&quot;
+)
+
+var (
+	ErrWriteTimeout = fmt.Errorf(&quot;WriteTimeout&quot;)
+)
+
+type Client interface {
+	ID() string
+	Ping()
+	Destroy()
+	Send(interface{}) error
+}
+
+type client struct {
+	conn         *websocket.Conn
+	id           string
+	writeTimeout time.Duration
+	closed       bool
+	chClose      chan struct{}
+}
+
+func NewClient(conn *websocket.Conn, userId string) Client {
+	c := &amp;client{conn, userId, 100 * time.Millisecond, false, make(chan struct{})}
+	go c.Ping()
+	return c
+}
+
+func (c *client) ID() string {
+	return c.id
+}
+
+func (c *client) Ping() {
+	ticker := time.NewTicker(100 * time.Millisecond)
+	defer ticker.Stop()
+	for {
+		select {
+		case &lt;-c.chClose:
+			return
+		case &lt;-ticker.C:
+			c.conn.SetWriteDeadline(time.Now().Add(c.writeTimeout))
+			c.conn.WriteMessage(websocket.PingMessage, nil)
+		}
+	}
+}
+
+func (c *client) Send(data interface{}) error {
+	c.conn.SetWriteDeadline(time.Now().Add(c.writeTimeout))
+	err := c.conn.WriteJSON(data)
+	return err
+}
+
+func (c *client) Destroy() {
+	c.chClose &lt;- struct{}{}
+}
+</code></pre>
+
+<p><code>main.go</code></p>
+
+<pre><code class="language-go">var (
+    hub = hub.NewHub()
+)
+
+func main() {
+    r := mux.NewRouter()
+    chClient := make(chan client.Client)
+    r.HandleFunc(&quot;/notification&quot;, hub.Serve(chClient))
+    http.ListenAndServe(&quot;:8080&quot;, r)
+}
+</code></pre>
+
+                <br>
+                
+                <p class="back-to-posts"><a href="https://faizalpribadi.github.io/blog">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-74736049-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/languages/go.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+
+
+<script>
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('/sw.js', { scope: '/' })
+            .then(function(registration) {
+                console.log('Service Worker Registered');
+            });
+
+        navigator.serviceWorker
+            .ready
+            .then(function(registration) {
+                console.log('Service Worker Ready');
+            });
+    }
+  </script>
+</body>
+</html>
+
