@@ -74,7 +74,7 @@ package main import ( &amp;quot;github.com/afex/hystrix-go/hystrix&amp;quot; &am
       <description> retry 
 description Retry Execution Library For Go
 installation go get -u github.com/faizalpribadi/retry
-usage retry.Retry(5, 1, func() error { // do some logic here return nil })  test go test  </description>
+usage retry.Do(5, 5, func() error { resp, err := http.Get(&amp;quot;https://example.io&amp;quot;) if err != nil { log.Println(err) return err } defer resp.Body.Close() return nil })  test go test  </description>
     </item>
     
     <item>
