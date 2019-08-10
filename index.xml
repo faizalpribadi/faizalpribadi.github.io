@@ -95,23 +95,5 @@ usage retry.Do(5, 5, func() error { resp, err := http.Get(&amp;quot;https://exam
       <description>Ok, let&amp;rsquo;s try to say hi!</description>
     </item>
     
-    <item>
-      <title>Oops, you are offline.</title>
-      <link>https://faizalpribadi.github.io/offline/</link>
-      <pubDate>Sun, 16 Oct 2016 19:28:41 +0200</pubDate>
-      
-      <guid>https://faizalpribadi.github.io/offline/</guid>
-      <description>You should try to find some internet connection to browse here.</description>
-    </item>
-    
-    <item>
-      <title>Page not found.</title>
-      <link>https://faizalpribadi.github.io/404/</link>
-      <pubDate>Sun, 16 Oct 2016 19:28:41 +0200</pubDate>
-      
-      <guid>https://faizalpribadi.github.io/404/</guid>
-      <description>You should look somewhere else.</description>
-    </item>
-    
   </channel>
 </rss>
