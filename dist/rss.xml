@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Faizal Pribadi - Senior Software Engineer</title>
+    <link>https://faizalpribadi.github.io</link>
+    <description>Senior Software Engineer with 9+ years building high-scale distributed systems. Expert in Go, Kubernetes, AWS, Kafka.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://faizalpribadi.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Faizal Pribadi</title>
+      <link>https://faizalpribadi.github.io/faizal-pribadi</link>
+      <description>Senior Software Engineer specializing in distributed systems, microservices, and cloud-native architecture.</description>
+      <pubDate>Sun, 11 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://faizalpribadi.github.io/faizal-pribadi</guid>
+    </item>
+  </channel>
+</rss>
