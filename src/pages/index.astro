@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const whoamiJson = `{
+  "name": "Faizal Pribadi",
+  "title": "Senior Software Engineer",
+  "experience": "9+ years",
+  "location": "Bogor, Indonesia",
+  "specialization": "Distributed Systems",
+  "stack": ["Go", "Kubernetes", "AWS", "Kafka"]
+}`;
+
+const profileJson = `{
+  "current": {
+    "company": "Bukumed",
+    "industry": "Healthcare Technology",
+    "period": "2025 - Present"
+  },
+  "experience": [
+    {
+      "company": "KickAvenue",
+      "role": "Senior Software Engineer & SRE",
+      "period": "2024 - 2025"
+    },
+    {
+      "company": "GRAB",
+      "role": "Senior Software Engineer",
+      "period": "2019 - 2023"
+    }
+  ]
+}`;
+
+const grabJson = `{
+  "company": "GRAB",
+  "highlights": ["$50M+ monthly transactions", "99.9% uptime", "100M+ users"]
+}`;
+---
+
+<Layout title="Home">
+  <div class="section">
+    <p class="command-prompt">
+      <span class="prompt-symbol">$</span>
+      <span class="prompt-path">/home/faizalpribadi</span>
+      <span class="cursor"></span>
+    </p>
+  </div>
+
+  <div class="section">
+    <p class="command-line">
+      <span class="prompt-symbol">$</span>
+      <span class="prompt-path">./intro.sh</span>
+    </p>
+    <p id="typewriter"></p>
+  </div>
+
+  <div class="section">
+    <p class="command-line">
+      <span class="prompt-symbol">$</span>
+      <span class="prompt-path">ls -la</span>
+    </p>
+    <div class="menu">
+      <a href="/" class="menu-item"><span class="menu-number">[01]</span><span class="menu-icon">🏠</span><span>Home</span></a>
+      <a href="/faizal-pribadi" class="menu-item"><span class="menu-number">[02]</span><span class="menu-icon">👤</span><span>About</span></a>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="command-line">
+      <span class="prompt-symbol">$</span>
+      <span class="prompt-path">whoami | jq</span>
+    </p>
+    <pre class="output json" set:html={whoamiJson}></pre>
+  </div>
+
+  <div class="section">
+    <p class="command-line">
+      <span class="prompt-symbol">$</span>
+      <span class="prompt-path">cat $HOME/.profile | jq '.experience[]'</span>
+    </p>
+    <pre class="output json" set:html={profileJson}></pre>
+  </div>
+
+  <div class="section">
+    <p class="command-line">
+      <span class="prompt-symbol">$</span>
+      <span class="prompt-path">cat $HOME/.profile | jq '.experience[] | select(.company=="GRAB")'</span>
+    </p>
+    <pre class="output json">&#123;'company':'GRAB','highlights':['$50M+ monthly transactions','99.9% uptime','100M+ users']&#125;</pre>
+  </div>
+
+  <div class="social-links">
+    <a href="https://github.com/faizalpribadi" target="_blank" rel="noopener" class="social-link"><span>⎔</span>GitHub</a>
+    <a href="https://linkedin.com/in/faizal-pribadi" target="_blank" rel="noopener" class="social-link"><span>◈</span>LinkedIn</a>
+    <a href="mailto:faizal.pribadi@gmail.com" class="social-link"><span>✉</span>Email</a>
+  </div>
+
+  <div class="footer">
+    <span>faizal@portfolio:~$</span>
+    <span class="cursor"></span>
+  </div>
+</Layout>
+
+<script>
+  const text = "Senior Software Engineer specializing in high-scale distributed systems. Built payment infrastructure processing $50M+/month, healthcare platforms serving 100K+ daily users, and event-driven architectures handling millions of events per second.";
+  const element = document.getElementById('typewriter');
+  let index = 0;
+  function type() {
+    if (index < text.length && element) {
+      element.textContent += text.charAt(index);
+      index++;
+      setTimeout(type, 25);
+    }
+  }
+  setTimeout(type, 600);
+</script>
+
+<style>
+  .command-prompt {
+    font-size: 1.1rem;
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--space-lg);
+  }
+  .command-prompt .prompt-symbol { color: var(--accent-success); font-weight: 700; }
+  .command-prompt .prompt-path { color: var(--accent-primary); }
+
+  .command-line {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: 4px;
+  }
+  .command-line .prompt-symbol { color: var(--accent-success); font-weight: 700; }
+  .command-line .prompt-path { color: var(--accent-secondary); }
+
+  .menu {
+    display: flex;
+    gap: var(--space-md);
+    margin-left: 24px;
+    margin-bottom: var(--space-md);
+  }
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+  .menu-item:hover { background: var(--bg-secondary); color: var(--accent-primary); }
+  .menu-number { color: var(--accent-secondary); font-weight: bold; font-size: 0.85rem; }
+  .menu-icon { font-size: 0.9rem; }
+
+  .output {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: var(--space-md);
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    margin-left: 24px;
+    margin-bottom: var(--space-md);
+    white-space: pre;
+    line-height: 1.5;
+    overflow-x: auto;
+  }
+
+  .output.json {
+    color: var(--accent-primary);
+  }
+
+  .output-text {
+    color: var(--accent-success);
+    font-size: 0.9rem;
+    margin-left: 24px;
+    margin-bottom: var(--space-md);
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    background: var(--accent-primary);
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+  }
+  @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+
+  .social-links {
+    display: flex;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+    padding-top: var(--space-lg);
+    margin-top: var(--space-xl);
+    border-top: 1px solid var(--border-color);
+  }
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  .social-link:hover { color: var(--accent-primary); }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+  }
+
+  @media (max-width: 640px) {
+    .output { white-space: pre-wrap; }
+    .menu { flex-direction: column; gap: var(--space-xs); }
+  }
+</style>

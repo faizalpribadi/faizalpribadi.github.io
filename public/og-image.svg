@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1e1e2e"/>
+  <rect x="40" y="40" width="1120" height="550" rx="16" fill="#272935"/>
+  <circle cx="600" cy="240" r="60" fill="#fab387"/>
+  <text x="600" y="350" text-anchor="middle" font-family="monospace" font-size="48" fill="#cdd6f4" font-weight="bold">FAIZAL PRIBADI</text>
+  <text x="600" y="410" text-anchor="middle" font-family="monospace" font-size="24" fill="#cba6f7">Senior Software Engineer</text>
+  <text x="600" y="460" text-anchor="middle" font-family="monospace" font-size="18" fill="#a6adc8">Go | Kubernetes | AWS | Kafka</text>
+  <text x="600" y="520" text-anchor="middle" font-family="monospace" font-size="16" fill="#6c7086">9+ years building distributed systems</text>
+  <circle cx="520" cy="550" r="8" fill="#f38ba8"/>
+  <circle cx="560" cy="550" r="8" fill="#f9e2af"/>
+  <circle cx="600" cy="550" r="8" fill="#a6e3a1"/>
+</svg>

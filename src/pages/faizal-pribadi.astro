@@ -1,0 +1,364 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Faizal Pribadi",
+  "jobTitle": "Senior Software Engineer",
+  "url": "https://faizalpribadi.github.io/faizal-pribadi",
+  "email": "faizal.pribadi@gmail.com",
+  "sameAs": [
+    "https://github.com/faizalpribadi",
+    "https://linkedin.com/in/faizal-pribadi"
+  ],
+  "knowsAbout": [
+    "Go",
+    "Distributed Systems",
+    "Microservices",
+    "Kubernetes",
+    "AWS",
+    "Kafka",
+    "Event-Driven Architecture",
+    "CQRS",
+    "Domain-Driven Design"
+  ]
+};
+
+const skills = [
+  { category: "Languages", items: ["Go", "Node.js", "Python", "TypeScript"] },
+  { category: "Frameworks", items: ["Echo", "Gin", "Fiber", "FastAPI", "gRPC"] },
+  { category: "Agentic AI", items: ["Tool-calling Agents", "Multi-agent Orchestration", "RAG Implementation", "Reasoning Engines", "Contextual Memory", "Guardrails"] },
+  { category: "Architecture", items: ["DDD", "CQRS", "Event-Driven", "Microservices", "API Gateway"] },
+  { category: "Cloud & Infra", items: ["AWS", "EKS", "Docker", "Kubernetes", "Terraform", "Helm", "GCP"] },
+  { category: "Data & Messaging", items: ["Kafka", "RabbitMQ", "NATS", "PostgreSQL", "MongoDB", "Redis"] },
+  { category: "DevOps & Observability", items: ["GitLab CI/CD", "GitHub Actions", "ArgoCD", "OpenTelemetry", "Prometheus", "Grafana", "Temporal"] }
+];
+---
+
+<Layout title="Faizal Pribadi - Senior Software Engineer | About" description="Senior Software Engineer with 9+ years experience building distributed systems at scale. Expert in Go, Kubernetes, AWS, Kafka. Previously at GRAB, KickAvenue, now at Bukumed.">
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+  <main>
+    <header class="section">
+      <h1>FAIZAL PRIBADI</h1>
+      <p class="title">Senior Software Engineer</p>
+      <div class="contact">
+        <a href="mailto:faizal.pribadi@gmail.com" class="contact-item">
+          <span class="icon">✉</span>
+          <span>faizal.pribadi@gmail.com</span>
+        </a>
+        <a href="tel:+6287718680979" class="contact-item">
+          <span class="icon">📱</span>
+          <span>+62 877 1868 0979</span>
+        </a>
+        <a href="https://github.com/faizalpribadi" target="_blank" rel="noopener" class="contact-item">
+          <span class="icon">⛓</span>
+          <span>GitHub</span>
+        </a>
+        <a href="https://linkedin.com/in/faizal-pribadi" target="_blank" rel="noopener" class="contact-item">
+          <span class="icon">⬡</span>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="prompt-line">
+        <span class="prompt-symbol">$</span>
+        <span class="prompt-path">cat about.md</span>
+      </div>
+      <p class="summary">Building <strong>high-throughput distributed systems</strong> that handle <strong>millions of requests per second</strong>. 9+ years of experience building mission-critical infrastructure at Southeast Asia's largest tech companies — from Grab's payment ecosystem processing <strong>$50M+ monthly</strong> to healthcare systems serving <strong>100K+ daily transactions</strong>.</p>
+      <p class="summary">Specializing in <strong>event-driven architectures</strong>, <strong>cloud-native deployments</strong>, and <strong>systems that scale beyond conventional limits</strong>. Passionate about building reliable, observable, and performant systems that power the next generation of tech.</p>
+    </section>
+
+    <section class="section">
+      <div class="prompt-line">
+        <span class="prompt-symbol">$</span>
+        <span class="prompt-path">grep -r "expertise" --include="*.yml"</span>
+      </div>
+      <div class="skills-grid">
+        {skills.map(skill => (
+          <div class="skill-group">
+            <h3 class="skill-category">{skill.category}</h3>
+            <div class="skill-tags">
+              {skill.items.map(item => (
+                <span class="skill-tag">{item}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="prompt-line">
+        <span class="prompt-symbol">$</span>
+        <span class="prompt-path">cat experience.log</span>
+      </div>
+
+      <article class="experience-item">
+        <header class="experience-header">
+          <div>
+            <h2 class="role">Senior Software Engineer</h2>
+            <p class="company">Bukumed <span class="separator">|</span> <span class="location">Hospital Technology</span></p>
+          </div>
+          <time class="period">Jun 2025 – Present</time>
+        </header>
+        <ul class="achievements">
+          <li><strong>Stock Transfer System</strong> — Real-time multi-facility inventory movement handling 100K+ daily transactions</li>
+          <li><strong>Notification Service</strong> — Built SSE + FCM + RabbitMQ pipeline with <strong>99.5% delivery success</strong></li>
+          <li><strong>Cashier System</strong> — End-to-end POS with QRIS, BPJS, EDC integration for 50+ facilities</li>
+          <li><strong>FHIR Converter</strong> — Healthcare interoperability layer mapping to SATUSEHAT standards</li>
+          <li><strong>CI/CD Automation</strong> — GitHub Actions pipelines reducing deployment time by <strong>60%</strong></li>
+        </ul>
+        <div class="tech-stack">
+          <span>Go</span><span>Fiber</span><span>MySQL</span><span>Redis</span><span>RabbitMQ</span><span>AWS</span><span>Kubernetes</span>
+        </div>
+      </article>
+
+      <article class="experience-item">
+        <header class="experience-header">
+          <div>
+            <h2 class="role">Senior Software Engineer & SRE</h2>
+            <p class="company">KickAvenue <span class="separator">|</span> <span class="location">E-Commerce Platform</span></p>
+          </div>
+          <time class="period">Apr 2024 – Jun 2025</time>
+        </header>
+        <ul class="achievements">
+          <li><strong>Agentic Workflows</strong> — Designing <strong>multi-agent orchestration</strong> for automated order processing and inventory management</li>
+          <li><strong>Microservices Migration</strong> — Led monolith-to-microservices transformation using Clean Architecture & DDD, cutting deployment time by <strong>50%</strong></li>
+          <li><strong>API Gateway</strong> — Designed HMAC authentication + Redis rate limiting for <strong>10M+ daily requests</strong></li>
+          <li><strong>Messaging Platform</strong> — Centralized Kafka pipeline for OTPs, email, push notifications with <strong>30% failure reduction</strong></li>
+          <li><strong>Observability</strong> — Implemented OpenTelemetry reducing MTTR by <strong>40%</strong></li>
+          <li><strong>Distributed Transactions</strong> — Implemented Temporal for cross-service consistency</li>
+        </ul>
+        <div class="tech-stack">
+          <span>Go</span><span>Kafka</span><span>MySQL</span><span>Redis</span><span>AWS EKS</span><span>Terraform</span><span>Temporal</span>
+        </div>
+      </article>
+
+      <article class="experience-item">
+        <header class="experience-header">
+          <div>
+            <h2 class="role">Senior Software Engineer</h2>
+            <p class="company">GRAB <span class="separator">|</span> <span class="location">Super App, Southeast Asia</span></p>
+          </div>
+          <time class="period">May 2019 – Aug 2023</time>
+        </header>
+        <ul class="achievements">
+          <li><strong>Event-Driven AI Pipeline</strong> — Built <strong>reasoning-driven automation</strong> for fraud detection and risk scoring with sub-second latency</li>
+          <li><strong>GrabPay Infrastructure</strong> — Spearheaded payment gateway integration processing <strong>$50M+ monthly</strong> across Southeast Asia</li>
+          <li><strong>Event Processing</strong> — Built Kafka-based background processing system handling <strong>1M+ events/hour</strong></li>
+          <li><strong>Biller Aggregator</strong> — Engineered platform for mobile & gaming top-ups across Vietnam, Philippines, Malaysia</li>
+          <li><strong>High Availability</strong> — Maintained <strong>99.9% uptime</strong> for services serving 100M+ users</li>
+        </ul>
+        <div class="tech-stack">
+          <span>Go</span><span>Kafka</span><span>MongoDB</span><span>MySQL</span><span>Redis</span><span>AWS</span><span>gRPC</span>
+        </div>
+      </article>
+
+      </section>
+
+    <section class="section">
+      <div class="prompt-line">
+        <span class="prompt-symbol">$</span>
+        <span class="prompt-path">cat education.sh</span>
+      </div>
+      <p><strong>Bachelor's in Informatics Engineering</strong> — STIKOM BINANIAGA BOGOR <span class="year">(2014)</span></p>
+    </section>
+
+    <nav class="social-links">
+      <a href="/" class="social-link">← Home</a>
+      <a href="https://github.com/faizalpribadi" target="_blank" rel="noopener" class="social-link">GitHub</a>
+      <a href="https://linkedin.com/in/faizal-pribadi" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+      <a href="mailto:faizal.pribadi@gmail.com" class="social-link">Contact</a>
+    </nav>
+
+    <footer class="footer">
+      <span>faizal@portfolio:~/faizal-pribadi$</span>
+      <span class="cursor"></span>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  .title {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .accent {
+    color: var(--accent-primary);
+    margin: 0 var(--space-sm);
+  }
+
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-item:hover {
+    color: var(--accent-primary);
+  }
+
+  .icon {
+    color: var(--accent-primary);
+  }
+
+  .summary {
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .summary strong {
+    color: var(--accent-primary);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .prompt-line {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+    color: var(--accent-success);
+  }
+
+  .prompt-symbol {
+    color: var(--accent-primary);
+    font-weight: bold;
+  }
+
+  .prompt-path {
+    color: var(--accent-secondary);
+  }
+
+  .experience-item {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+  }
+
+  .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .role {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .company {
+    color: var(--accent-primary);
+    margin: var(--space-xs) 0 0;
+  }
+
+  .separator {
+    color: var(--text-muted);
+  }
+
+  .location {
+    color: var(--text-muted);
+  }
+
+  .period {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  .achievements {
+    list-style: none;
+    margin: 0 0 var(--space-md);
+    padding: 0;
+  }
+
+  .achievements li {
+    position: relative;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--text-secondary);
+  }
+
+  .achievements li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-secondary);
+  }
+
+  .achievements li strong {
+    color: var(--accent-primary);
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tech-stack span {
+    font-size: 0.75rem;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--bg-tertiary);
+    color: var(--text-muted);
+    border-radius: 4px;
+  }
+
+  .year {
+    color: var(--text-muted);
+  }
+
+  .social-links {
+    display: flex;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .social-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .social-link:hover {
+    color: var(--accent-primary);
+  }
+
+  @media (max-width: 640px) {
+    .experience-header {
+      flex-direction: column;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
